@@ -1,0 +1,46 @@
+<html>
+
+
+<title></title>
+<div class="container">
+  <h1>Registration Numbers</h1>
+  <form class="" action="/reg_numbers" method="post">
+    <input class="myTextarea" type="text" name="input"></input>
+    <div class="button1">
+      <button type="submit" onclick="" class="Reseting button button-primary" value="Reset">ADD</button>
+      <a href="/removeTowns">
+        <button class="Reseting button button-primary" type="button">RESET</button>
+      </a>
+    </div>
+  </form>
+  <div class="options">
+    <form class="" action="/tNames" method="post">
+      <div class="dropDown">
+        <p>FILTER REGNUMBERS</p>
+        <select onchange="submit()" class="places" name="tNames">
+          <option name='tNames' value="allTown"> all Towns</option>
+          {{#each towns}}
+          <option value="{{town_reg}}" name='tNames' {{chosen}}>{{town_reg}} </option>
+          {{/each}}
+        </select>
+      </div>
+
+  </div>
+  </form>
+  <div>
+    {{#each reg}}
+    <li>{{town_reg}}</li>
+    {{/each}}
+  </div>
+  <div>
+    {{!--
+    <ul> --}} {{#each number_plate}}
+      <ul>
+        {{registration_numbers}}
+      </ul>
+      {{/each}} {{!--
+    </ul> --}}
+  </div>
+</div>
+
+</html>

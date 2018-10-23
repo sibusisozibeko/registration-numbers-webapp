@@ -1,0 +1,30 @@
+.Reset {
+  width: 100px;
+  height: 30px;
+  background-color: lightgreen;
+  margin: 50px;
+}
+.btnAdd {
+  width: 100px;
+  height: 30px;
+  background-color: lightgreen;
+  margin: 50px;
+}
+.options {
+  padding: 30px;
+}
+.Show {
+  width: 100px;
+  height: 30px;
+  background-color: lightgreen;
+  margin: 50px;
+}
+ul {
+  border-radius: 25px;
+  background: yellow;
+  padding: 20px;
+  width: 150px;
+  height: 10px;
+  border: 2px solid black;
+  text-align: center;
+}
