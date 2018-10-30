@@ -74,51 +74,34 @@ app.post("/reg_numbers", async function(req, res, next) {
     next(error.stack);
   }
 });
-//show selected town reg numbers
-app.post("/:tNames", async function(req, res, next) {
-  let city = req.body.tNames;
-  console.log(city);
+// show selected town reg numbers
+app.post("/tNames", async function(req, res, next) {
   try {
-    let reg_numbers = await Regnumb.filtering(city);
-    console.log(reg_numbers);
-    let towns = await Regnumb.showplates();
-    if (city === "all Towns") {
-      res.render("home", {
-        towns: towns,
-        // chosenTown: await Regnumb.filtering(regplate)
-        number_plate: reg_numbers
-      });
-    } else {
-      let plates = res.render("home", {
-        towns: towns,
-        chosenTown: await Regnumb.filtering(city)
-      });
-    }
+    // getTown = req.body.townNames;
+    //         let selectedTown = await regNumber.populateTowns(getTown);
+    //         let display = await regNumber.filterRegistrations(getTown);
+    //         selectedTown = selectedTown.map((element) => {
+    //             if (element.town_code === getTown) {
+    //                 element['selected'] = 'selected';
+    //             }
+    //             return element;
+    //         });
+    //         res.render('home', {
+    //             display,
+    //             selectedTown
   } catch (error) {
     next(error.stack);
   }
 });
-app.get("/removeTowns", async function(req, res, next) {
-  try {
-    if (await Regnumb.getplates()) {
-      req.flash(
-        "success",
-        "All Registrayions Have Been Deleted Successfull...!"
-      );
 
-      return res.redirect("/");
-    } else {
-      await Regnumb.clearPlates();
-      req.flash(
-        "success",
-        "All Registrayions Have Been Deleted Successfull...!"
-      );
+app.get("/removeTowns", async function(req, res) {
+  // if (await Regnumb.getplates()) {
+  //   res.redirect("/");
+  // } else {
 
-      res.redirect("/");
-    }
-  } catch (error) {
-    next(error.stack);
-  }
+  await Regnumb.clearPlates();
+  res.redirect("/");
+  // }
 });
 
 app.use(bodyParser.json());

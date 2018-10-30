@@ -21,7 +21,7 @@ module.exports = function(pool) {
               `insert into regplates(registration_numbers, town_id) values($1, $2)`,
               [regNumber, Id_reg.id]
             );
-            console.log("awesome");
+            // console.log("awesome");
             return "awesome";
           } else {
             console.log("its in the database already");
@@ -64,12 +64,14 @@ module.exports = function(pool) {
     let getLoc = await pool.query(
       "select town_reg, town_initials from licenceplate"
     );
+    // console.log(getLoc.rows);
     return getLoc.rows;
   }
 
   async function clearPlates() {
     let clear = await pool.query("delete from regplates");
-    return clear.rows[0];
+    //console.log(clear.rows);
+    return clear[0];
   }
 
   return {
