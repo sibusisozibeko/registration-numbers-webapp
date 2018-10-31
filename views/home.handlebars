@@ -5,7 +5,8 @@
 <div class="container">
   <h1>Registration Numbers</h1>
   <form class="" action="/reg_numbers" method="post">
-    <input class="myTextarea" type="text" name="input"></input>
+    <input class="myTextarea" type="text" name="input" value="" placeholder="eg. CA 123-456" pattern="[A-Z]{2,3}\s\d{3}\W\d{3}"
+      maxlength="12" required></input>
     <div class="button1">
       <button type="submit" onclick="" class="adding" value="Reset">ADD</button>
       <a href="/removeTowns">
@@ -14,7 +15,7 @@
     </div>
   </form>
   <div class="options">
-    <form class="" action="/tNames" method="post">
+    <form class="" action="/filTowns" method="post">
       <div class="dropDown">
         <p>FILTER REGNUMBERS</p>
         <select onchange="submit()" class="places" name="tNames">

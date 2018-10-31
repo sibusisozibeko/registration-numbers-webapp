@@ -75,33 +75,23 @@ app.post("/reg_numbers", async function(req, res, next) {
   }
 });
 // show selected town reg numbers
-app.post("/tNames", async function(req, res, next) {
+app.post("/filTowns", async function(req, res, next) {
   try {
-    // getTown = req.body.townNames;
-    //         let selectedTown = await regNumber.populateTowns(getTown);
-    //         let display = await regNumber.filterRegistrations(getTown);
-    //         selectedTown = selectedTown.map((element) => {
-    //             if (element.town_code === getTown) {
-    //                 element['selected'] = 'selected';
-    //             }
-    //             return element;
-    //         });
-    //         res.render('home', {
-    //             display,
-    //             selectedTown
+    let regplates = req.body.tNames;
+    await Regnumb.showplates();
+    let number_plate = await Regnumb.filtering(regplates);
+    res.render("home", { number_plate, towns: await Regnumb.showplates() });
   } catch (error) {
     next(error.stack);
   }
 });
 
 app.get("/removeTowns", async function(req, res) {
-  // if (await Regnumb.getplates()) {
-  //   res.redirect("/");
-  // } else {
-
+  if (!regNumber) {
+  }
   await Regnumb.clearPlates();
+
   res.redirect("/");
-  // }
 });
 
 app.use(bodyParser.json());
