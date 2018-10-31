@@ -78,17 +78,20 @@ app.post("/reg_numbers", async function(req, res, next) {
 app.post("/filTowns", async function(req, res, next) {
   try {
     let regplates = req.body.tNames;
-    await Regnumb.showplates();
-    let number_plate = await Regnumb.filtering(regplates);
-    res.render("home", { number_plate, towns: await Regnumb.showplates() });
+    if (regplates == "allTown") {
+      console.log(regplates);
+      res.redirect("/");
+    } else {
+      await Regnumb.showplates();
+      let number_plate = await Regnumb.filtering(regplates);
+      res.render("home", { number_plate, towns: await Regnumb.showplates() });
+    }
   } catch (error) {
     next(error.stack);
   }
 });
 
 app.get("/removeTowns", async function(req, res) {
-  if (!regNumber) {
-  }
   await Regnumb.clearPlates();
 
   res.redirect("/");

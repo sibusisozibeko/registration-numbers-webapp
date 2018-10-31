@@ -19,8 +19,9 @@
       <div class="dropDown">
         <p>FILTER REGNUMBERS</p>
         <select onchange="submit()" class="places" name="tNames">
-          <option name='tNames' value="allTown"> all Towns</option>
-          {{#each towns}}
+          <option name='tNames' value="allTown" {{chosen}}> all Towns</option>
+          {{#each towns}} {{!--
+          <option name='tNames' value="allTown" {{chosen}}> all Towns</option> --}}
           <option value="{{town_reg}}" name='tNames' {{chosen}}>{{town_reg}} </option>
           {{/each}}
         </select>
