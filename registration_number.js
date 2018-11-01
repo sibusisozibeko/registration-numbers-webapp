@@ -22,9 +22,9 @@ module.exports = function(pool) {
               [regNumber, Id_reg.id]
             );
             // console.log("awesome");
-            return "awesome";
+            return "AWESOME";
           } else {
-            console.log("its in the database already");
+            return "ENTER DIFFERENT REGISTRATION";
           }
         }
       }

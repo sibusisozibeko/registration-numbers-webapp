@@ -4,33 +4,52 @@
 <title></title>
 <div class="container">
   <h1>Registration Numbers</h1>
-  <form class="" action="/reg_numbers" method="post">
-    <input class="myTextarea" type="text" name="input" value="" placeholder="eg. CA 123-456" pattern="[A-Z]{2,3}\s\d{3}\W\d{3}"
-      maxlength="12" required></input>
-    <div class="button1">
-      <button type="submit" onclick="" class="adding" value="Reset">ADD</button>
-      <a href="/removeTowns">
-        Reset {{!-- <button class="Reseting button button-primary" type="submit" value="Reset">CLEAR</button> --}}
-      </a>
+  <p>Enter Towns starting with CA, CK and CY</p>
+  <div class="row">
+    <div class="six columns">
+      <form class="" action="/reg_numbers" method="post">
+        <input class="myTextarea" type="text" name="input" value="" placeholder="eg. CA 123-456" pattern="[A-Z]{2,3}\s\d{3}\W\d{3}"
+          maxlength="12" required></input>
+        <div class="button1">
+          <button type="submit" onclick="" class="adding" value="Reset">ADD</button>
+          <a href="/removeTowns">
+            Reset {{!-- <button class="Reseting button button-primary" type="submit" value="Reset">CLEAR</button> --}}
+          </a>
+        </div>
     </div>
-  </form>
-  <div class="options">
-    <form class="" action="/filTowns" method="post">
-      <div class="dropDown">
-        <p>FILTER REGNUMBERS</p>
-        <select onchange="submit()" class="places" name="tNames">
-          <option name='tNames'> choose town</option>
-          <option name='tNames' value="allTown" {{chosen}}> all Towns</option>
-          {{#each towns}} {{!--
-          <option name='tNames' value="allTown" {{chosen}}> all Towns</option> --}}
-          <option value="{{town_reg}}" name='tNames' {{chosen}}>{{town_reg}} </option>
-          {{/each}}
-        </select>
+    </form>
+    <div class="message" style="color: #c0392b;">
+
+      <div class="two columns">
+        {{#if messages.error}} {{/if}} {{messages.error}}
+      </div>
+      <div class="success">
+
+        {{!-- {{#if messages.success}} {{messages.success}} > {{/if }} --}}
+
       </div>
 
-  </div>
-  </form>
-  <div>
+    </div>
+
+    <div class="options">
+      <form class="" action="/filTowns" method="post">
+        <div class="four columns">
+          <div class="dropDown">
+            <p>FILTER REGNUMBERS</p>
+            <select onchange="submit()" class="places" name="tNames">
+              <option name='tNames'> choose town</option>
+              <option name='tNames' value="allTown" {{chosen}}> all Towns</option>
+              {{#each towns}} {{!--
+              <option name='tNames' value="allTown" {{chosen}}> all Towns</option> --}}
+              <option value="{{town_reg}}" name='tNames' {{chosen}}>{{town_reg}} </option>
+              {{/each}}
+            </select>
+          </div>
+
+        </div>
+      </form>
+    </div>
+
     {{#each reg}}
     <li>{{town_reg}}</li>
     {{/each}}

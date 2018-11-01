@@ -51,6 +51,7 @@ a {
   border: 1px solid #bbb;
   cursor: pointer;
   box-sizing: border-box;
+  margin: 30px;
 }
 
 .Show {
@@ -62,9 +63,16 @@ a {
 ul {
   border-radius: 25px;
   background: yellow;
-  padding: 20px;
-  width: 150px;
-  height: 10px;
+  padding: 15px;
+  width: 100px;
+  height: 5px;
   border: 2px solid black;
   text-align: center;
+  display: inline-block;
+  margin: 40px;
+  white-space: 0em;
+}
+.dropDown {
+  shift: left;
+  margin-right: 5em;
 }

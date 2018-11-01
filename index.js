@@ -68,7 +68,10 @@ app.get("/", async function(req, res, next) {
 app.post("/reg_numbers", async function(req, res, next) {
   try {
     let regNumber = req.body.input;
-    await Regnumb.Regadd(regNumber);
+    let message = await Regnumb.Regadd(regNumber);
+    req.flash("error", message);
+    req.flash("success", message);
+
     res.redirect("/");
   } catch (error) {
     next(error.stack);
