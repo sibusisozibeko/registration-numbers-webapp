@@ -4,7 +4,7 @@ node_js:
   - "8.9.4"
 
 env:
-  - DATABASE_URL=postgresql://postgres@localhost:5432/regplates
+  - DATABASE_URL=postgresql://postgres@localhost:5432/registration
 
 before_script:
   - psql -c 'create database registration;' -U postgres
