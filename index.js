@@ -58,7 +58,7 @@ app.get("/", async function(req, res, next) {
   try {
     res.render("home", {
       number_plate: await Regnumb.getplates(),
-      towns: await Regnumb.showplates()
+      licenceplate: await Regnumb.showplates()
     });
   } catch (error) {
     next(error.stack);
@@ -87,7 +87,10 @@ app.post("/filTowns", async function(req, res, next) {
     } else {
       await Regnumb.showplates();
       let number_plate = await Regnumb.filtering(regplates);
-      res.render("home", { number_plate, towns: await Regnumb.showplates() });
+      res.render("home", {
+        number_plate,
+        licenceplate: await Regnumb.showplates()
+      });
     }
   } catch (error) {
     next(error.stack);

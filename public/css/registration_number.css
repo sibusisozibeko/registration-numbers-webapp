@@ -61,16 +61,15 @@ a {
   margin: 50px;
 }
 ul {
-  border-radius: 25px;
+  border-radius: 20px;
   background: yellow;
-  padding: 15px;
-  width: 100px;
-  height: 5px;
+  padding: 20px;
+  width: 110px;
+  height: 15px;
   border: 2px solid black;
   text-align: center;
   display: inline-block;
   margin: 40px;
-  white-space: 0em;
 }
 .dropDown {
   margin-right: 5em;

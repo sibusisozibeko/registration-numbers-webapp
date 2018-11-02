@@ -50,6 +50,7 @@ module.exports = function(pool) {
       " SELECT licenceplate.town_reg, regplates.registration_numbers FROM regplates INNER JOIN licenceplate on regplates.town_id = licenceplate.id WHERE town_reg = $1",
       [regplates]
     );
+    // console.log(plates.rows);
     return plates.rows;
   }
 
@@ -57,6 +58,7 @@ module.exports = function(pool) {
     let choosereg = await pool.query(
       "select registration_numbers from regplates"
     );
+    //console.log(choosereg.rows);
     return choosereg.rows;
   }
 

@@ -1,3 +1,5 @@
+DROP TABLE if exists licenceplate, regplates;
+
 create table licenceplate
 (
     id serial primary key,
@@ -13,6 +15,6 @@ create table regplates
     foreign key (town_id) references licenceplate(id)
 );
 
-insert into towns(town_initials, town_reg) values('Cape Town', 'CA');
-insert into towns(town_initials, town_reg) values('Bellville', 'CY');
-insert into towns(town_initials, town_reg) values('Mamelsberry', 'CK');
+insert into licenceplate(town_reg, town_initials) values('Cape Town', 'CA');
+insert into licenceplate(town_reg, town_initials) values('Bellville', 'CY');
+insert into licenceplate(town_reg, town_initials) values('Malmesbury', 'CK');
