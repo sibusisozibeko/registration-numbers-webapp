@@ -33,12 +33,13 @@
 
     <div class="options">
       <form class="" action="/filTowns" method="post">
-        <div class="four columns">
+        <div class="six columns">
           <div class="dropDown">
             <p>FILTER REGNUMBERS</p>
             <select onchange="submit()" class="places" name="tNames">
               <option name='tNames'> choose town</option>
               <option name='tNames' value="allTown" {{chosen}}> all Towns</option>
+
               {{#each towns}} {{!--
               <option name='tNames' value="allTown" {{chosen}}> all Towns</option> --}}
               <option value="{{town_reg}}" name='tNames' {{chosen}}>{{town_reg}} </option>
